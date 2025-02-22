@@ -6,13 +6,16 @@
     <title>Document</title>
     <!-- axios 사용 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/public/css/register.css" />
 </head>
 <body>
-    <h1>상품등록</h1>
-    <form name="registerForm">
+    <div class="topBox">
+        <img class="logoText" src="/img/textLogo.jpg" width="220">
+        <h1>상품등록</h1>
+    </div>
+    <form name="registerForm" class="registerForm">
         <div>
             <input name="id" placeholder="아이디를 입력해 주세요." /><br />
-            <div id="userID"></div> <!-- 중복 시 오류메시지 출력 부분 -->
         </div>
         <div>
             <input name="name" placeholder="상품 이름을 입력해 주세요." /><br />
@@ -23,7 +26,7 @@
         <div>
             <input name="price" type="number" placeholder="가격을 입력해 주세요." /><br />
         </div>
-        <button type="button" onclick="connectDB(event)">등록</button>
+        <button id="btn" type="button" onclick="connectDB(event)">등록</button>
     </form>
 
     <br />
@@ -45,8 +48,8 @@
                     <td><%= getProducts[i].comment %></td>
                     <td><%= getProducts[i].price %></td>
                     <td>
-                        <button onclick="updatePage('<%= getProducts[i].id %>')" type="button">수정</button>
-                        <button onclick="deleteForm('<%= getProducts[i].id %>')" type="button">삭제</button>
+                        <button class="modifybtn" onclick="updatePage('<%= getProducts[i].id %>')" type="button">수정</button>
+                        <button class="delectbtn" onclick="deleteForm('<%= getProducts[i].id %>')" type="button">삭제</button>
                     </td>
                 </tr>
             <% } %>

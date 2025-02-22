@@ -19,6 +19,7 @@ const port = 3000;
 app.use(express.json()); // JSON 형식의 데이터를 받기 위해 추가
 app.use(express.urlencoded({ extended: true })); // form 데이터 받기 위해 추가
 app.use("/public", express.static(__dirname + "/public"));
+app.use("/img", express.static(__dirname + "/img"));
 // app.use("/uploads", express.static(__dirname + "/uploads"))
 
 // 라우팅 처리

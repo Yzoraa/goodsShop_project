@@ -1,0 +1,105 @@
+/* 기본 바디 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f6f2;
+    color: #333;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+.topBox {
+    background-color: #ffffff;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    padding: 5px 20px;
+    z-index: 1000;
+    border-bottom: 3px solid #8C6239;
+}
+
+/* 제목 스타일 */
+.topBox h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 입력 폼 스타일 */
+.registerUpdate {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 120px auto 40px; /* 헤더와 겹치지 않도록 조정 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.registerUpdate .content {
+    display: flex;
+    align-items: center;
+}
+
+.registerUpdate div {
+    margin-bottom: 20px;
+}
+
+.registerUpdate .text {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+    padding-left: 7px;
+    text-align: center;
+}
+
+.registerUpdate input {
+    width: 85%;
+    padding: 10px;
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.registerUpdate input:focus {
+    border-color: #EFE5DA;
+    outline: none;
+}
+
+/* 버튼 스타일 */
+.registerUpdate button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7b7167;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registerUpdate button:hover {
+    background-color: #5f5852;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .registerUpdate {
+        width: 95%;
+        padding: 15px;
+    }
+}
