@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios 사용 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>수정 페이지</h1>
+    <form name="registerUpdate">
+        <div>
+            이름 <input name="name" value="<%= getForMove.name %>"/>
+        </div>
+        <div>
+            설명 <input name="comment" value="<%= getForMove.comment %>"/>
+        </div>
+        <div>
+            가격 <input name="price" value="<%= getForMove.price %>"/>
+        </div>
+        <button type="button" onclick="updateForm('<%= getForMove.id %>')">수정</button>
+    </form>
+</body>
+<script>
+    const updateForm = (id) =>{
+        const form = document.forms['registerUpdate'];
+
+        const data = {
+            id: id,
+            name: form['name'].value,
+            comment: form['comment'].value,
+            price: form['price'].value
+        };
+        
+        axios({
+            method: 'put',
+            url: '/register/update',
+            data: data,
+        }).then((res) =>{
+            alert('수정성공!');
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+</script>
+</html> 

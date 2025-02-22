@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios 사용 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>상품등록</h1>
+    <form name="registerForm">
+        <div>
+            <input name="id" placeholder="아이디를 입력해 주세요." /><br />
+            <div id="userID"></div> <!-- 중복 시 오류메시지 출력 부분 -->
+        </div>
+        <div>
+            <input name="name" placeholder="상품 이름을 입력해 주세요." /><br />
+        </div>
+        <div>
+            <input name="comment" placeholder="상품 설명을 입력해 주세요." /><br />
+        </div>
+        <div>
+            <input name="price" type="number" placeholder="가격을 입력해 주세요." /><br />
+        </div>
+        <button type="button" onclick="connectDB(event)">등록</button>
+    </form>
+
+    <br />
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>이름</th>
+                <th>설명</th>
+                <th>가격</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i < getProducts.length; i++) { %>
+                <tr id="tr-<%= getProducts[i].id %>">
+                    <td><%= getProducts[i].id %></td>
+                    <td><a href="/visitor/detail/<%= getProducts[i].id %>"><%= getProducts[i].name %></td></a>
+                    <td><%= getProducts[i].comment %></td>
+                    <td><%= getProducts[i].price %></td>
+                    <td>
+                        <button onclick="updatePage('<%= getProducts[i].id %>')" type="button">수정</button>
+                        <button onclick="deleteForm('<%= getProducts[i].id %>')" type="button">삭제</button>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+</body>
+<script>
+    // db 연결 (등록)
+    const connectDB = (event) =>{
+        event.preventDefault();
+        const id = document.querySelector("input[name='id']").value;
+        const name = document.querySelector("input[name='name']").value;
+        const comment = document.querySelector("input[name='comment']").value;
+        const price = document.querySelector("input[name='price']").value;
+
+        axios({
+            method: "post",
+            url: "/register/postData",
+            data: {id, name, comment, price},
+            headers: { "Content-Type": "application/json" }
+        }).then((res) =>{ 
+            alert("등록성공");
+            location.reload();
+        })
+        .catch((error) => {
+            console.error("데이터 저장 오류:", error);
+        });
+    };
+
+    // 삭제
+    const deleteForm = (id) =>{
+        axios({
+            method:'delete',
+            url: `/register/delete/${id}`
+        }).then((res) =>{
+            alert("삭제성공");
+            location.reload();
+        }).catch((error) => {
+            console.log(error);
+            console.error("데이터 삭제 오류:", error);
+        });
+    };
+
+    // 수정 페이지로 이동
+    const updatePage = (id) =>{
+        window.location.href = `/register/write/${id}`;
+    }
+
+</script>
+</html>
