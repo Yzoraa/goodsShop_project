@@ -13,7 +13,13 @@
         <img class="logoText" src="/img/textLogo.jpg" width="220">
         <h1>상품등록</h1>
     </div>
+
     <form name="registerForm" class="registerForm">
+        <div class="imgBox">
+            <div class="result"></div>
+            <input type="file" name="dynamicFile" id="dynamicFile" />
+            <button type="button" onclick="fileUpload()">업로드</button>
+        </div>
         <div>
             <input name="id" placeholder="아이디를 입력해 주세요." /><br />
         </div>
@@ -95,6 +101,28 @@
     // 수정 페이지로 이동
     const updatePage = (id) =>{
         window.location.href = `/register/write/${id}`;
+    }
+
+    // 파일업로드
+    const resultBox = document.querySelector('.result');
+
+    const fileUpload = () =>{
+        const file = document.getElementById('dynamicFile');
+        // console.log(file.files[0], '첫번째콘솔');
+
+        const fileData = new FormData();
+        fileData.append('dynamicFile', file.files[0]);
+
+        axios({
+            method: 'post',
+            url: '/dynamicFile',
+            data: fileData,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        }).then(res => {
+            resultBox.innerHTML = `<div><img src=/uploads/${res.data} width="300px"></div>`;
+        })
     }
 
 </script>
