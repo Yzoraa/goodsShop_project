@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인화면</title>
+    <link rel="stylesheet" href="/public/css/main.css">
 </head>
 <body>
-    <h1>메인페이지</h1>
+    <div class="topBox">
+        <div class="topLeft">
+            <img class="logoText" src="/img/textLogo.jpg" width="220px">
+        </div>
+        <div class="topRight">
+            <div class="text">LOGIN</div>
+            <div class="text">MYPAGE</div>
+            <div class="text">CART</div>
+        </div>
+    </div>
+
+    <div class="sliderContainer">
+        <div class="slider"></div>
+        <div class="indicators"></div>
+    </div>
+
+    <div class="bodyText">BEST SELLER</div>
+    <div class="productCNT">등록제품 : <% getMains.length %></div><br />
+    <!-- 종류 배너 시간남으면! -->
+    <div class="bodyWrap">
+        <% getMains.forEach(product => { %>
+            <div class="card" onclick="detailPage(<%= product.id %>)">
+                <img src="<%= product.img_url %>" alt="<%= product.name %>" class="cardImg">
+                <img src="/img/heartBlack.png" alt="좋아요" class="heartIcon">
+
+                <span class="cardTitle"><%= product.name %></span>
+            </div>
+        <% }); %>
+    </div>
 </body>
+<script src="/public/js/main.js"></script>
 </html>

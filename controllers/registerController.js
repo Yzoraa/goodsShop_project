@@ -1,13 +1,19 @@
 const registerModel = require('../models/registerModel');
 
-// 전체
+// 전체 (등록페이지)
 const getProducts = async (req, res) => {
     const getProducts = await registerModel.getAllProduct();
     console.log("데이터 확인:", getProducts);
     res.render("register", { getProducts });
 };
 
-// 아이디 하나만 가져오기
+// 전체 (메인페이지)
+const getMainProducts = async (req, res) =>{
+    const getMains = await registerModel.getAllProduct();
+    res.render("main", { getMains });
+}
+
+// 아이디 하나만 가져오기 (상세페이지 이동!)
 const getProduct = async (req, res) =>{
     const productOne = await registerModel.getOneProduct(req.params.id);
     res.render("detailOne", { productOne });
@@ -42,4 +48,4 @@ const dataUpdate = async (req, res) =>{
     res.send(200);
 }
 
-module.exports = {getProducts, getProduct, postProducts, deleteData, moveWrite, dataUpdate};
+module.exports = {getProducts, getMainProducts, getProduct, postProducts, deleteData, moveWrite, dataUpdate};

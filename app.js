@@ -35,6 +35,8 @@ app.use("/uploads", express.static(__dirname + "/uploads"))
 // 라우팅 처리
 const registerRouter = require('./routes/registerRoute');
 app.use('/register', registerRouter);
+const mainRouter = require('./routes/mainRoute');
+app.use('/', mainRouter);
 
 // 미들웨어
 app.set("view engine", "ejs");
@@ -49,7 +51,6 @@ app.get("/", (req, res) => {
 app.post("/dynamicFile", upload.single('dynamicFile'), (req, res) =>{
     const imgUrl = `/uploads/${req.file.filename}`;
     res.send({imgUrl});
-    // res.send(req.file.filename);
 })
 
 // 서버연결

@@ -1,0 +1,144 @@
+/* 기본 바디 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f6f2;
+    color: #333;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+.topBox {
+    background-color: #ffffff;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    padding: 5px 20px;
+    z-index: 1000;
+    border-bottom: 3px solid #8C6239;
+}
+
+/* 제목 스타일 */
+.topBox h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* 전체 컨테이너 */
+.detailContainer {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    margin: 120px auto 40px;
+    /* background-color: #fff; */
+    padding: 20px;
+}
+
+/* 상품 이미지 */
+.imgBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productImg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+}
+
+/* 상품 정보 */
+.infoBOx {
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 18px;
+    color: #8C6239;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 수량 선택 */
+.quantityBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.quantityBox label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.qBtn {
+    background-color: #8C6239;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.qBtn:hover {
+    background-color: #6e4f2a;
+}
+
+#quantity {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* 총 가격 */
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 장바구니 버튼 */
+.cartBtn {
+    background-color: #8C6239;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cartBtn:hover {
+    background-color: #6e4f2a;
+}
