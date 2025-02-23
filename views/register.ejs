@@ -17,8 +17,10 @@
     <form name="registerForm" class="registerForm">
         <div class="imgBox">
             <div class="result"></div>
-            <input type="file" name="dynamicFile" id="dynamicFile" />
-            <button type="button" onclick="fileUpload()">업로드</button>
+            <div class="fileUploadBox">
+                <input type="file" name="dynamicFile" id="dynamicFile" />
+                <button type="button" onclick="fileUpload()">업로드</button>
+            </div>
         </div>
         <div>
             <input name="id" placeholder="아이디를 입력해 주세요." /><br />
@@ -39,6 +41,7 @@
     <table border="1">
         <thead>
             <tr>
+                <th>이미지</th>
                 <th>ID</th>
                 <th>이름</th>
                 <th>설명</th>
@@ -49,6 +52,7 @@
         <tbody>
             <% for (let i=0; i < getProducts.length; i++) { %>
                 <tr id="tr-<%= getProducts[i].id %>">
+                    <td><img src="<%= getProducts[i].img_url %>" width="100"></td>
                     <td><%= getProducts[i].id %></td>
                     <td><a href="/visitor/detail/<%= getProducts[i].id %>"><%= getProducts[i].name %></td></a>
                     <td><%= getProducts[i].comment %></td>
@@ -65,6 +69,7 @@
     // db 연결 (등록)
     const connectDB = (event) =>{
         event.preventDefault();
+        const img = document.querySelector(".result img")?.src || "";
         const id = document.querySelector("input[name='id']").value;
         const name = document.querySelector("input[name='name']").value;
         const comment = document.querySelector("input[name='comment']").value;
@@ -73,7 +78,7 @@
         axios({
             method: "post",
             url: "/register/postData",
-            data: {id, name, comment, price},
+            data: {id, name, comment, price, img_url: img},
             headers: { "Content-Type": "application/json" }
         }).then((res) =>{ 
             alert("등록성공");
@@ -121,8 +126,12 @@
                 'Content-Type': 'multipart/form-data',
             },
         }).then(res => {
-            resultBox.innerHTML = `<div><img src=/uploads/${res.data} width="300px"></div>`;
-        })
+            const imgUrl = res.data.imgUrl
+            resultBox.innerHTML = `<div><img src=${imgUrl} width="200px" height="200px"></div>`;
+        }).catch((error) => {
+            console.log(error);
+            console.error("이미지 업로드 오류:", error);
+        });
     }
 
 </script>

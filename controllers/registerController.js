@@ -16,7 +16,7 @@ const getProduct = async (req, res) =>{
 // 등록
 const postProducts = async (req, res) => {
   try{
-    console.log("클라이언트에서 받은 데이터:", req.body);
+    console.log("사용자에게 받은 데이터:", req.body);
     const result = await registerModel.postProduct(req.body);
     res.send('성공');
   } catch (error) {

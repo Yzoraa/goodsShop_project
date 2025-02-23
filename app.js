@@ -47,7 +47,9 @@ app.get("/", (req, res) => {
 
 // 이미지 파일
 app.post("/dynamicFile", upload.single('dynamicFile'), (req, res) =>{
-    res.send(req.file.filename);
+    const imgUrl = `/uploads/${req.file.filename}`;
+    res.send({imgUrl});
+    // res.send(req.file.filename);
 })
 
 // 서버연결

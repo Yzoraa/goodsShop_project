@@ -25,8 +25,8 @@ const getOneProduct = async (userid) =>{
 // 등록하기
 const postProduct = async (data) => {
     try {
-        const query = "INSERT INTO products (id, name, comment, price) VALUES (?, ?, ?, ?)";
-        const values = [data.id, data.name, data.comment, data.price];
+        const query = "INSERT INTO products (id, name, comment, price, img_url) VALUES (?, ?, ?, ?, ?)";
+        const values = [data.id, data.name, data.comment, data.price, data.img_url];
         const [result] = await pool.query(query, values);
 
         return "데이터가 성공적으로 등록되었습니다.";
