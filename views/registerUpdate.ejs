@@ -13,7 +13,18 @@
         <img class="logoText" src="/img/textLogo.jpg" width="220">
         <h1>수정 페이지</h1>
     </div>
+
     <form name="registerUpdate" class="registerUpdate">
+        <div class="imgBox">
+            <div class="result">
+                <img src="<%= getForMove.img_url %>" width="200px" height="200px">
+            </div>
+            <div class="fileUploadBox">
+                <input type="file" name="dynamicFile" id="dynamicFile" />
+                <input type="hidden" id="newimgUrl" name="img_url" value="<%= getForMove.img_url %>">
+                <button type="button" onclick="fileUpload()">업로드</button>
+            </div>
+        </div>
         <div class="content">
             <div class="text">이름</div>
             <input name="name" value="<%= getForMove.name %>"/>
@@ -26,29 +37,8 @@
             <div class="text">가격</div>
             <input name="price" value="<%= getForMove.price %>"/>
         </div>
-        <button type="button" onclick="updateForm('<%= getForMove.id %>')">수정</button>
+        <button id="btn" type="button" onclick="updateForm('<%= getForMove.id %>')">수정</button>
     </form>
 </body>
-<script>
-    const updateForm = (id) =>{
-        const form = document.forms['registerUpdate'];
-
-        const data = {
-            id: id,
-            name: form['name'].value,
-            comment: form['comment'].value,
-            price: form['price'].value
-        };
-        
-        axios({
-            method: 'put',
-            url: '/register/update',
-            data: data,
-        }).then((res) =>{
-            alert('수정성공!');
-        }).catch((error) => {
-            console.log(error);
-        });
-    }
-</script>
+<script src="/public/js/registerUpdate.js"></script>
 </html> 

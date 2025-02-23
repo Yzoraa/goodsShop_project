@@ -47,9 +47,9 @@ const deleteRow = async (id) =>{
 
 // 해당 아이디 가진 데이터 수정
 const updateRow = async (data) =>{
-    const query = 'UPDATE products SET name = ?, comment = ?, price = ? WHERE  id = ?';
+    const query = 'UPDATE products SET name = ?, comment = ?, price = ?, img_url = ? WHERE  id = ?';
     try{
-        await pool.query(query, [data.name, data.comment, data.price, Number(data.id)]);
+        await pool.query(query, [data.name, data.comment, data.price, data.img_url, Number(data.id)]);
     } catch(error){
         console.log('수정 실패');
     }
