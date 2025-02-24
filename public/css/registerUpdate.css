@@ -140,6 +140,17 @@ body {
     outline: none;
 }
 
+/* TUI 에디터 컨테이너 스타일 */
+#editor {
+    width: 85%;
+    min-height: 150px; /* 기존 input 높이와 조절 */
+    border: 1px solid #ddd; /* 기존 input 스타일과 맞춤 */
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: white; /* 배경색 동일하게 */
+}
+
 /* 수정 버튼 스타일 */
 #btn {
     display: block;

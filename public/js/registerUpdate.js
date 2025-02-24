@@ -1,3 +1,15 @@
+const editorEl = document.querySelector('#editor');
+const comment = editorEl.dataset.comment || '';
+
+const editor = new toastui.Editor({
+    el: document.querySelector('#editor'),
+    height: '200px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    initialValue: comment
+});
+
+// 이미지 업로드
 const resultBox = document.querySelector('.result');
 
 const fileUpload = () =>{
@@ -24,13 +36,15 @@ const fileUpload = () =>{
     });
 }
 
+// 수정버튼 클릭 시 실행
 const updateForm = (id) =>{
     const form = document.forms['registerUpdate'];
 
     const data = {
         id: id,
         name: form['name'].value,
-        comment: form['comment'].value,
+        comment: editor.getMarkdown(),
+        // comment: form['comment'].value,
         price: form['price'].value,
         img_url: document.getElementById('newimgUrl').value
     };

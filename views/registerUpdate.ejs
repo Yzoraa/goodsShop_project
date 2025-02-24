@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>상품 수정</title>
+    <!-- TUI 에디터 객체 사용 -->
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <!-- axios 사용 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/public/css/registerUpdate.css" />
@@ -31,7 +34,8 @@
         </div>
         <div class="content">
             <div class="text">설명</div>
-            <input name="comment" value="<%= getForMove.comment %>"/>
+            <div id="editor" data-comment="<%= getForMove.comment %>"></div>
+            <!-- <input name="comment" value="<%= getForMove.comment %>"/> -->
         </div>
         <div class="content">
             <div class="text">가격</div>

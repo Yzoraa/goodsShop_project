@@ -1,10 +1,18 @@
+const editor = new toastui.Editor({
+    el: document.querySelector('#editor'),
+    height: '200px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical'
+});
+
 // db 연결 (등록)
 const connectDB = (event) =>{
     event.preventDefault();
     const img = document.querySelector(".result img")?.src || "";
     const id = document.querySelector("input[name='id']").value;
     const name = document.querySelector("input[name='name']").value;
-    const comment = document.querySelector("input[name='comment']").value;
+    const comment = editor.getMarkdown(); // 에디터에서 입력값 가져오기
+    // const comment = document.querySelector("input[name='comment']").value;
     const price = document.querySelector("input[name='price']").value;
 
     axios({

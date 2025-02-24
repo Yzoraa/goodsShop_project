@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- TUI 에디터 객체 사용 -->
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <!-- axios 사용 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/public/css/register.css" />
@@ -22,17 +25,20 @@
                 <button type="button" onclick="fileUpload()">업로드</button>
             </div>
         </div>
-        <div class="content">
+        <div>
             <input name="id" id="idInput" placeholder="아이디를 입력해 주세요." /><br />
             <div id="userID"></div> <!-- 아이디 중복 불가 -->
         </div>
-        <div class="content">
+        <div>
             <input name="name" placeholder="상품 이름을 입력해 주세요." /><br />
         </div>
         <div class="content">
-            <input name="comment" placeholder="상품 설명을 입력해 주세요." /><br />
+            <div id="editor"></div>
         </div>
-        <div class="content">
+        <!-- <div>
+            <input name="comment" placeholder="상품 설명을 입력해 주세요." /><br />
+        </div> -->
+        <div>
             <input name="price" type="number" placeholder="가격을 입력해 주세요." /><br />
         </div>
         <button id="btn" type="button" onclick="connectDB(event)">등록</button>
