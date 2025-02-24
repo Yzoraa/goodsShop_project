@@ -18,7 +18,7 @@ const getAllProduct = async () =>{
 // 해당하는 데이터 하나만 가져오기
 const getOneProduct = async (userid) =>{
     const query = "select * from products where id = ?";
-    const [rows] = await pool.query(query, [userid]);
+    const [rows] = await pool.query(query, parseInt([userid]));
     return rows[0];
 };
 

@@ -14,7 +14,7 @@
         <h1>장바구니</h1>
     </div>
 
-    <table>
+    <table>        
         <thead>
             <tr>
                 <th>이미지</th>
@@ -28,8 +28,8 @@
         <tbody>
             <% cartItems.forEach(item => { %>
                 <tr>
-                    <td><img src="<%= item.img_url%>" alt="상품 이미지" width="100"></td>
-                    <td><%= item.name %></td>
+                    <td><a href="/register/detail/<%= item.product_id %>"><img src="<%= item.img_url%>" alt="상품 이미지" width="100"></a></td>
+                    <td class="move" onclick="detailPage('<%= item.product_id %>')"><%= item.name %></td>
                     <td><%= item.price %>원</td>
                     <td><%= item.quantity %></td>
                     <td><%= item.price * item.quantity %>원</td>
@@ -40,6 +40,7 @@
             <% }) %>
         </tbody>
     </table>
+    <button class="deleteAll">🗑️ 전체 삭제하기</button>
 
     <button onclick="goToHome()">홈으로 가기</button>
 </body>

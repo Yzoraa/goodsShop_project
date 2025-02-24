@@ -13,19 +13,21 @@
         </div>
         <div class="topRight">
             <div class="text">LOGIN</div>
+            <div>|</div>
             <div class="text">MYPAGE</div>
-            <div class="text">CART</div>
+            <div>|</div>
+            <div class="text" onclick="cartPage()">CART</div>
         </div>
     </div>
 
     <div class="sliderContainer">
         <div class="slider"></div>
         <div class="indicators"></div>
+        <script src="/public/js/slider.js"></script>
     </div>
 
     <div class="bodyText">BEST SELLER</div>
     <div class="productCNT">등록제품 : <% getMains.length %></div><br />
-    <!-- 종류 배너 시간남으면! -->
     <div class="bodyWrap">
         <% getMains.forEach(product => { %>
             <div class="card" onclick="detailPage(<%= product.id %>)">

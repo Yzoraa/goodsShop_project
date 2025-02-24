@@ -11,8 +11,9 @@ const pool = mysql.createPool({
 // 장바구니 상품 조회
 const getCartItems = async () => {
     const query = `
-        SELECT carts.id, products.name, products.price, carts.quantity, products.img_url 
-        FROM carts 
+        SELECT carts.id, carts.product_id, carts.quantity, 
+               products.name, products.price, products.img_url 
+        FROM carts
         JOIN products ON carts.product_id = products.id
     `;
     const [rows] = await pool.query(query);

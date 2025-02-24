@@ -4,6 +4,7 @@ const cartModel = require('../models/cartModel');
 // 장바구니 페이지 이동
 const moveCart = async (req, res) =>{
     const cartItems = await cartModel.getCartItems();
+    // console.log("장바구니 데이터 확인:", cartItems);
     res.render('cart', {cartItems});
 };
 

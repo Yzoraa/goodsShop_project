@@ -14,9 +14,16 @@ const getMainProducts = async (req, res) =>{
 }
 
 // 아이디 하나만 가져오기 (상세페이지 이동!)
-const getProduct = async (req, res) =>{
-    const productOne = await registerModel.getOneProduct(req.params.id);
-    res.render("detailOne", { productOne });
+const getProduct = async (req, res) => {
+    try {
+        console.log("요청받은 ID:", req.params.id);
+        const productOne = await registerModel.getOneProduct(req.params.id);
+        console.log("상품 데이터:", productOne);
+        
+        res.render("detailOne", { productOne });
+    } catch (error) {
+        console.error("상품 상세 조회 오류:", error);
+    }
 };
 
 // 등록

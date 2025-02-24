@@ -12,20 +12,78 @@ body {
     background-color: #ffffff;
     display: flex;
     position: fixed;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    align-items: center;
     padding: 5px 20px;
     z-index: 1000;
     border-bottom: 3px solid #8C6239;
 }
 
+.topRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 50px;
+}
+
+.text {
+    cursor: pointer;
+}
+
 /* 슬라이더 */
 .sliderContainer {
-    margin: 120px auto 40px;
+    margin: 90px auto 30px;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
 }
+
+.slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 인디케이터 스타일 */
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    border: none;
+    cursor: pointer;
+}
+
+.indicators .active {
+    background-color: #333;
+}
+
 
 /* 상품 리스트 컨테이너 */
 .bodyWrap {

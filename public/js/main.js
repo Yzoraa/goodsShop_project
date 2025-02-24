@@ -3,6 +3,11 @@ const detailPage = (id) =>{
     window.location.href = `/detail/${id}`;
 }
 
+// 장바구니 페이지로 이동
+const cartPage = () =>{
+    window.location.href = '/cart';
+}
+
 // 하트 토글 이벤트
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".heartIcon").forEach(icon => {

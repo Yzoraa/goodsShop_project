@@ -34,7 +34,12 @@ const deleteItem = (id) =>{
     });
 };
 
+// 상세 페이지로 이동
+const detailPage = (id) =>{
+    window.location.href = `/register/detail/${id}`;
+};
+
 // 홈(메인페이지) 이동
 const goToHome = () =>{
     window.location.href = "/";
-}
+};
