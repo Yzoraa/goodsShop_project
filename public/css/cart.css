@@ -1,0 +1,114 @@
+/* 기본 바디 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f6f2;
+    color: #333;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+.topBox {
+    background-color: #ffffff;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    padding: 5px 20px;
+    z-index: 1000;
+    border-bottom: 3px solid #8C6239;
+}
+
+/* 제목 스타일 */
+.topBox h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+    color: black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 장바구니 테이블 스타일 */
+table {
+    width: 90%;
+    max-width: 1000px;
+    margin: 120px auto 40px; /* 헤더와 겹치지 않도록 조정 */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #5f5852;
+    color: #fff;
+}
+
+th, td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+td img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* 삭제 버튼 스타일 */
+.delectbtn {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #E74C3C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delectbtn:hover {
+    background-color: #C0392B;
+}
+
+/* 홈으로 가기 버튼 */
+button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #7b7167;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5f5852;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    table {
+        width: 95%;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    td img {
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -37,6 +37,8 @@ const registerRouter = require('./routes/registerRoute');
 app.use('/register', registerRouter);
 const mainRouter = require('./routes/mainRoute');
 app.use('/', mainRouter);
+const cartRouter = require('./routes/cartRoute');
+app.use('/cart', cartRouter);
 
 // 미들웨어
 app.set("view engine", "ejs");

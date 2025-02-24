@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/public/css/cart.css">
+    <script defer src="/public/js/cart.js"></script>
+    <title>장바구니</title>
+</head>
+<body>
+    <div class="topBox">
+        <img class="logoText" src="/img/textLogo.jpg" width="220px">
+        <h1>장바구니</h1>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>이미지</th>
+                <th>상품정보</th>
+                <th>판매가</th>
+                <th>수량</th>
+                <th>합계</th>
+                <th>선택</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cartItems.forEach(item => { %>
+                <tr>
+                    <td><img src="<%= item.img_url%>" alt="상품 이미지" width="100"></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.price %>원</td>
+                    <td><%= item.quantity %></td>
+                    <td><%= item.price * item.quantity %>원</td>
+                    <td>
+                        <button class="delectbtn" onclick="deleteItem('<%= item.id %>')" type="button">삭제</button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <button onclick="goToHome()">홈으로 가기</button>
+</body>
+</html>

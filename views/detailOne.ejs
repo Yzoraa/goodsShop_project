@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 상세 정보</title>
     <link rel="stylesheet" href="/public/css/detailOne.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="/public/js/cart.js"></script>    
 </head>
 <body>
     <div class="topBox">
         <img class="logoText" src="/img/textLogo.jpg" width="220px">
-        <h1>장바구니</h1>
+        <h1>상세페이지</h1>
     </div>
 
     <div class="detailContainer">
-        <!-- 왼쪽: 상품 이미지 -->
+        <!-- 왼쪽 상품이미지 -->
         <div class="imgBox">
             <img src="<%= productOne.img_url %>" alt="상품이름" class="productImg">
         </div>
 
-        <!-- 오른쪽: 상품 정보 -->
-        <div class="infoBOx">
+        <!-- 오른쪽 상품정보 -->
+        <div class="infoBox" data-product-id="<%= productOne.id %>" data-price="<%= productOne.price %>">
             <h1 class="title"><%= productOne.name %></h1>
-            <p class="comment"><%= productOne.comment %></p>
-            <p class="price">가격: <span id="price"><%= productOne.price %></span>원</p>
+            <p class="comment"><%= productOne.comment %></p><hr />
+            <p class="price">판매가: <span id="price"><%= productOne.price %></span>원</p><hr />
             
-            <!-- 주문 수량 선택 -->
             <div class="quantityBox">
                 <label for="quantity">수량:</label>
                 <button class="qBtn" onclick="changeQuantity(-1)">-</button>
@@ -32,34 +33,11 @@
                 <button class="qBtn" onclick="changeQuantity(1)">+</button>
             </div>
 
-            <!-- 총 가격 -->
             <p class="total">총 가격: <span id="totalPrice"><%= productOne.price %></span>원</p>
 
-            <!-- 장바구니 버튼 -->
-            <button class="cartBtn" onclick="addToCart()">장바구니에 추가</button>
+            <button class="cartBtn">장바구니에 추가</button>
         </div>
     </div>
-
-    <script>
-        let price = <%= productOne.price %>;
-
-        // 수량 변경 함수
-        function changeQuantity(amount) {
-            let quantityInput = document.getElementById('quantity');
-            let totalPrice = document.getElementById('totalPrice');
-            let newQuantity = parseInt(quantityInput.value) + amount;
-
-            if (newQuantity >= 1) {
-                quantityInput.value = newQuantity;
-                totalPrice.innerText = newQuantity * price;
-            }
-        }
-
-        // 장바구니 추가 함수
-        function addToCart() {
-            let quantity = document.getElementById('quantity').value;
-            alert(`장바구니에 ${quantity}개 추가되었습니다!`);
-        }
-    </script>
 </body>
+<script src="/public/js/detailOne.js"></script>
 </html>
