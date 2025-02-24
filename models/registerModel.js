@@ -55,4 +55,15 @@ const updateRow = async (data) =>{
     }
 }
 
-module.exports = {getAllProduct, getOneProduct, postProduct, deleteRow, updateRow};
+// 아이템 중복 검사
+const checkDuplicatedID = async (id) => {
+    const query = "SELECT COUNT(*) AS count FROM products WHERE id = ?";
+    try{
+        const [rows] = await pool.query(query, [id]);
+        return rows[0].count > 0;
+    } catch(error){
+        console.log('중복검사 실패')
+    }
+}
+
+module.exports = {getAllProduct, getOneProduct, postProduct, deleteRow, updateRow, checkDuplicatedID};

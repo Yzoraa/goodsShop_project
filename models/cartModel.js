@@ -35,7 +35,7 @@ const addCart = async (product_id, quantity) => {
 };
 
 // 해당 아이디 가진 데이터 삭제
-const deleteCart = async (id) => {
+const deleteCart = async () => {
     const query = "DELETE FROM carts WHERE id = ?";
     try{
         await pool.query(query,[id]);
@@ -44,4 +44,15 @@ const deleteCart = async (id) => {
     }
 };
 
-module.exports = { getCartItems, addCart, deleteCart };
+// 전체 데이터 삭제
+const deleteCartAll = async (id) => {
+    const query = "DELETE FROM carts";
+    try{
+        await pool.query(query);
+    } catch(error){
+        console.log('삭제 실패');
+    }
+};
+
+
+module.exports = { getCartItems, addCart, deleteCart, deleteCartAll };

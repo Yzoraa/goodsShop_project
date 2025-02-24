@@ -21,6 +21,31 @@ const connectDB = (event) =>{
     });
 };
 
+// 아이디 중복 불가능
+const checkDuplicated = () =>{
+    const inputID = document.querySelector("input[name='id']").value;
+    const userID = document.getElementById('userID');
+
+    axios({
+        method: "post",
+        url: "/register/checkID",
+        data: { id: inputID },
+        headers: { "Content-Type": "application/json" }
+    }).then((res) =>{
+        if (res.data.isDuplicated) {
+            userID.textContent = "중복된 아이디입니다.";
+            userID.style.color = "red";
+        } else {
+            userID.textContent = "사용 가능한 아이디입니다.";
+            userID.style.color = "green";
+        }
+    }).catch((error) =>{
+        console.error("ID 중복 확인 오류:", error);
+    })
+}
+const idInput = document.getElementById("idInput");
+idInput.addEventListener("input", checkDuplicated);
+
 // 삭제
 const deleteForm = (id) =>{
     axios({

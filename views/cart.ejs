@@ -10,11 +10,20 @@
 </head>
 <body>
     <div class="topBox">
-        <img class="logoText" src="/img/textLogo.jpg" width="220px">
-        <h1>장바구니</h1>
+        <div class="topLeft">
+            <img class="logoText" src="/img/textLogo.jpg" width="220px">
+        </div>
+        <div class="topRight">
+            <div class="text">LOGIN</div>
+            <div>|</div>
+            <div class="text">MYPAGE</div>
+            <div>|</div>
+            <div class="text" onclick="cartPage()">CART</div>
+        </div>
     </div>
 
-    <table>        
+    <h4>장바구니</h4>
+    <table>
         <thead>
             <tr>
                 <th>이미지</th>
@@ -40,7 +49,7 @@
             <% }) %>
         </tbody>
     </table>
-    <button class="deleteAll">🗑️ 전체 삭제하기</button>
+    <button class="deleteAll" onclick="deleteAll()">🗑️ 전체 삭제하기</button>
 
     <button onclick="goToHome()">홈으로 가기</button>
 </body>

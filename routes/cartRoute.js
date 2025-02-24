@@ -11,4 +11,7 @@ router.post("/add", cartController.addToCart);
 // 아이템 삭제
 router.delete('/delete/:id', cartController.deleteToCart);
 
+// 아이템 전체 삭제
+router.delete('/delete', cartController.deleteToCartAll);
+
 module.exports = router;

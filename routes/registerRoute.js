@@ -20,4 +20,7 @@ router.delete('/delete/:id', registerController.deleteData);
 // 수정
 router.put('/update', registerController.dataUpdate);
 
+// 아이디 중복 검사
+router.post('/checkID', registerController.duplicatedID);
+
 module.exports = router;

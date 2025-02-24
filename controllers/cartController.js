@@ -17,9 +17,16 @@ const addToCart = async (req, res) =>{
 
 // 장바구니 삭제
 const deleteToCart = async (req, res) =>{
-    console.log("삭제 요청 ID:", req.params.id);  // 요청된 ID 로그 확인
-    await cartModel.deleteCart(req.params.id);
+    // console.log("삭제 요청 ID:", req.params.id);
+    const deleteItem = await cartModel.deleteCart(req.params.id);
     res.send(200);
 }
 
-module.exports = { moveCart, addToCart, deleteToCart }
+// 전체 장바구니 삭제
+const deleteToCartAll = async (req, res) =>{
+    console.log("삭제 요청 ID:", req.params.id);
+    const deleteItemAll = await cartModel.deleteCartAll();
+    res.send(200);
+}
+
+module.exports = { moveCart, addToCart, deleteToCart, deleteToCartAll }

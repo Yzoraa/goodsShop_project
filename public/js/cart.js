@@ -26,13 +26,27 @@ const deleteItem = (id) =>{
         method:'delete',
         url: `/cart/delete/${id}`
     }).then((res) =>{
-        alert("삭제성공");
+        alert("삭제되었습니다.");
         location.reload();
     }).catch((error) => {
         console.log(error);
         console.error("데이터 삭제 오류:", error);
     });
 };
+
+// 전체 삭제
+const deleteAll = () =>{
+    axios({
+        method:'delete',
+        url: `/cart/delete`
+    }).then((res) =>{
+        alert("전체 삭제되었습니다.");
+        location.reload();
+    }).catch((error) => {
+        console.log(error);
+        console.error("전체 데이터 삭제 오류:", error);
+    });
+}
 
 // 상세 페이지로 이동
 const detailPage = (id) =>{

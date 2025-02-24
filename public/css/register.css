@@ -156,8 +156,24 @@ th, td {
     border: 1px solid #ddd;
 }
 
-th:nth-child(5) { /* 관리 */
-    width: 20%;
+th:nth-child(1) { /* 이미지 */
+    width: 14%;
+}
+
+th:nth-child(2) { /* 아이디 */
+    width: 5%;
+}
+
+th:nth-child(3) { /* 이름 */
+    width: 14%;
+}
+
+th:nth-child(5) { /* 가격 */
+    width: 8%;
+}
+
+th:nth-child(6) { /* 관리 */
+    width: 18%;
 }
 
 tbody tr:hover {

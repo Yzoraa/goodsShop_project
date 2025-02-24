@@ -55,4 +55,10 @@ const dataUpdate = async (req, res) =>{
     res.send(200);
 }
 
-module.exports = {getProducts, getMainProducts, getProduct, postProducts, deleteData, moveWrite, dataUpdate};
+// 아이디 중복 검사
+const duplicatedID = async (req, res) =>{
+    const isDuplicated = await registerModel.checkDuplicatedID(req.body.id);
+    res.send({ isDuplicated });
+}
+
+module.exports = {getProducts, getMainProducts, getProduct, postProducts, deleteData, moveWrite, dataUpdate, duplicatedID};

@@ -122,6 +122,66 @@ body {
     cursor: pointer;
 }
 
+/* 푸터 */
+.bottom {
+    background-color: #ffffffde;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    padding: 30px;
+}
+
+.bottomLeft {
+    padding: 20px;
+}
+.bottomLeft span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+
+    margin: 30px 0px;
+}
+.bottomLeft p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.bottomRight {
+    text-align: center;
+    padding-right: 30px;
+}
+.bottomRight span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.bottomRight p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.buttonBox {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.buttonBox button {
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.bottomRight .buttonBox {
+    margin-bottom: 25px; 
+}
+
 @media (max-width: 1024px) {
     .bodyWrap {
         grid-template-columns: repeat(3, 1fr);  /* 태블릿 화면: 3개씩 */
