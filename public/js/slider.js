@@ -11,6 +11,8 @@ const images = [
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.slider');
     const indicators = document.querySelector('.indicators');
+    const prevBtn = document.querySelector('.prevBtn');
+    const nextBtn = document.querySelector('.nextBtn');
 
     // 전체 이미지 사용
     images.forEach((imgSrc, index) => {
@@ -22,12 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // 인디케이터 추가
         const indicator = document.createElement('button');
         if (index === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', () => moveSlide(index)); 
+        indicator.addEventListener('click', () => {
+            moveSlide(index);
+        }); 
         indicators.appendChild(indicator);
     });
 
     let currentIndex = 0;
-
+    let autoSlide = setInterval(() => moveSlide(currentIndex + 1), 3000);
+    
+    // 슬라이드 이동
     function moveSlide(index) {
         const totalSlides = images.length;
 
@@ -45,17 +51,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const indicatorButtons = document.querySelectorAll('.indicators button');
     
-        indicatorButtons.forEach((button, idx) => {
+        indicatorButtons.forEach((btn, idx) => {
             if (idx === index) {
-                button.classList.add('active');
+                btn.classList.add('active');
             } else {
-                button.classList.remove('active');
+                btn.classList.remove('active');
             }
+            btn.classList.toggle('active', idx === index);
         });
+
+        resetAutoSlide();
     }
-    
-    // 자동 슬라이드 (3초마다 한 장씩 이동)
-    setInterval(() => {
-        moveSlide(currentIndex + 1); // 다음 슬라이드로 이동
-    }, 3000);
+
+    function resetAutoSlide() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(() => moveSlide(currentIndex + 1), 3000);
+    }
+
+    // 버튼 클릭 이벤트 추가
+    prevBtn.addEventListener('click', () => moveSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => moveSlide(currentIndex + 1));
 });

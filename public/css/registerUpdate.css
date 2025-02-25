@@ -23,6 +23,10 @@ body {
     border-bottom: 3px solid #8C6239;
 }
 
+.logoText{
+    cursor: pointer;
+}
+
 .topRight {
     display: flex;
     align-items: center;

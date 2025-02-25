@@ -12,3 +12,13 @@ function changeQuantity(amount) {
         totalPrice.innerText = newQuantity * price;
     }
 }
+
+// 장바구니 페이지로 이동
+const cartPage = () =>{
+    window.location.href = '/cart';
+}
+
+// 홈(메인페이지) 이동
+const goToHome = () =>{
+    window.location.href = "/";
+};

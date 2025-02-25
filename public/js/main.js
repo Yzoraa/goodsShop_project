@@ -8,6 +8,11 @@ const cartPage = () =>{
     window.location.href = '/cart';
 }
 
+// 홈(메인페이지) 이동
+const goToHome = () =>{
+    window.location.href = "/";
+};
+
 // 하트 토글 이벤트
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".heartIcon").forEach(icon => {

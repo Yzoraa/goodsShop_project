@@ -22,6 +22,10 @@ body {
     border-bottom: 3px solid #8C6239;
 }
 
+.logoText{
+    cursor: pointer;
+}
+
 .topRight {
     display: flex;
     align-items: center;
@@ -44,7 +48,6 @@ body {
 
 /* 상품 이미지 */
 .imgBox {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;

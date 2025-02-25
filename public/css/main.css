@@ -23,6 +23,10 @@ body {
     border-bottom: 3px solid #8C6239;
 }
 
+.logoText{
+    cursor: pointer;
+}
+
 .topRight {
     display: flex;
     align-items: center;
@@ -43,6 +47,12 @@ body {
     position: relative;
 }
 
+.sliderContainer:hover .prevBtn,
+.sliderContainer:hover .nextBtn {
+    opacity: 1;
+    visibility: visible;
+}
+
 .slider {
     display: flex;
     width: 100%;
@@ -59,6 +69,37 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* 네비게이션 스타일 */
+.prevBtn, .nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(144, 143, 143, 0.356);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: background-color 0.3s ease;
+}
+
+.prevBtn {
+    left: 10px;
+}
+
+.nextBtn {
+    right: 10px;
+}
+
+.prevBtn:hover, .nextBtn:hover {
+    background: rgba(153, 152, 152, 0.436);
 }
 
 /* 인디케이터 스타일 */
