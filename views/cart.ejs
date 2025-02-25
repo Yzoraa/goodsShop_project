@@ -11,7 +11,7 @@
 <body>
     <div class="topBox">
         <div class="topLeft">
-            <img class="logoText" src="/img/textLogo.jpg" width="220px">
+            <img class="logoText" src="/img/textLogo.jpg" width="220px" onclick="goToHome()">
         </div>
         <div class="topRight">
             <div class="text">LOGIN</div>
@@ -49,8 +49,24 @@
             <% }) %>
         </tbody>
     </table>
-    <button class="deleteAll" onclick="deleteAll()">🗑️ 전체 삭제하기</button>
+    <button class="deleteAll" onclick="deleteAll()">🗑️ 전체 삭제</button>
 
-    <button onclick="goToHome()">홈으로 가기</button>
+    <div class="bottom">
+        <div class="bottomLeft">
+            <span>주식회사 Yzoraa's 생활연구소</span>
+            <p>CEO : Yzoraa &emsp; 주소 : 서울시 마포구 은행로 00, 000 (여의도동, 00빌딩) &emsp; 이메일 : aaaa@yzoraaalbum.com</p>
+            <p class="copyright">Copyright 2025 © Yzoraa. All Right Reserved.</p>
+        </div>
+        <div class="bottomRight">
+            <span>고객센터</span>
+            <p>CALL CENTER : 1544-0000</p>
+            <div class="buttonBox">
+                <button>1:1 문의</button>
+                <button>FAQ</button>
+            </div>
+            <p>MON-FRI 9:00~18:00 / SAT-SUN·HOLIDAY OFF</p>
+            <p>LUNCH 12:00~14:00</p>
+        </div>
+    </div>
 </body>
 </html>

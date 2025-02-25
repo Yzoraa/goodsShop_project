@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     background-color: #f8f6f2;
     color: #333;
-    padding: 20px;
+    margin: 0;
 }
 
 /* 헤더 스타일 */
@@ -12,14 +12,26 @@ body {
     background-color: #ffffff;
     display: flex;
     position: fixed;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    align-items: center;
     padding: 5px 20px;
     z-index: 1000;
     border-bottom: 3px solid #8C6239;
+}
+
+.topRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 50px;
+}
+
+.text {
+    cursor: pointer;
 }
 
 /* 제목 스타일 */
@@ -37,7 +49,7 @@ body {
 .registerForm {
     width: 90%;
     max-width: 1000px;
-    margin: 120px auto 40px; /* 헤더와 겹치지 않도록 조정 */
+    margin: 140px auto 40px; /* 헤더와 겹치지 않도록 조정 */
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -139,7 +151,8 @@ body {
 }
 
 table {
-    width: 100%;
+    width: 95%;
+    margin: auto;
     border-collapse: collapse;
     font-size: 14px;
     background-color: #ffffff;
@@ -205,6 +218,66 @@ tbody tr:hover {
 
 .delectbtn:hover {
     background-color: #C0392B;
+}
+
+/* 푸터 */
+.bottom {
+    background-color: #ffffffde;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    padding: 30px;
+}
+
+.bottomLeft {
+    padding: 20px;
+}
+.bottomLeft span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+
+    margin: 30px 0px;
+}
+.bottomLeft p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.bottomRight {
+    text-align: center;
+    padding-right: 30px;
+}
+.bottomRight span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.bottomRight p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.buttonBox {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.buttonBox button {
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.bottomRight .buttonBox {
+    margin-bottom: 25px; 
 }
 
 /* 반응형 스타일 */

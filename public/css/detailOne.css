@@ -3,7 +3,6 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f6f2;
     color: #333;
-    padding: 20px;
     margin: 0;
 }
 
@@ -12,24 +11,26 @@ body {
     background-color: #ffffff;
     display: flex;
     position: fixed;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    align-items: center;
     padding: 5px 20px;
     z-index: 1000;
     border-bottom: 3px solid #8C6239;
 }
 
-.topBox h1 {
-    flex: 1;
-    text-align: center;
-    font-size: 24px;
-    color: black;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.topRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 50px;
+}
+
+.text {
+    cursor: pointer;
 }
 
 /* 상품 상세 페이지 스타일 */
@@ -37,7 +38,7 @@ body {
     display: flex;
     width: 80%;
     max-width: 1000px;
-    margin: 120px auto 40px;
+    margin: 140px auto 40px;
     background-color: #fff;
 }
 
@@ -137,4 +138,64 @@ body {
 
 .cartBtn:hover {
     background-color: #5f4424;
+}
+
+/* 푸터 */
+.bottom {
+    background-color: #ffffffde;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    padding: 30px;
+}
+
+.bottomLeft {
+    padding: 20px;
+}
+.bottomLeft span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+
+    margin: 30px 0px;
+}
+.bottomLeft p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.bottomRight {
+    text-align: center;
+    padding-right: 30px;
+}
+.bottomRight span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.bottomRight p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.buttonBox {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.buttonBox button {
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.bottomRight .buttonBox {
+    margin-bottom: 25px; 
 }

@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     background-color: #f8f6f2;
     color: #333;
-    padding: 20px;
+    margin: 0;
 }
 
 /* 헤더 스타일 */
@@ -23,6 +23,10 @@ body {
     border-bottom: 3px solid #8C6239;
 }
 
+.logoText{
+    cursor: pointer;
+}
+
 .topRight {
     display: flex;
     align-items: center;
@@ -36,7 +40,7 @@ body {
 
 h4 {
     margin: 120px auto 20px; /* 헤더와 겹치지 않도록 조정 */
-    margin-left: 250px;
+    margin-left: 280px;
 }
 
 /* 장바구니 테이블 스타일 */
@@ -88,11 +92,11 @@ td img {
     background-color: #C0392B;
 }
 
-/* 홈으로 가기 버튼 */
-button {
+/* 삭제 버튼 */
+.deleteAll {
     display: block;
-    width: 200px;
-    margin: 20px auto;
+    width: 130px;
+    margin: 40px auto;
     padding: 10px;
     font-size: 16px;
     background-color: #7b7167;
@@ -103,8 +107,67 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.deleteAll:hover {
     background-color: #5f5852;
+}
+
+/* 푸터 */
+.bottom {
+    background-color: #ffffffde;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    padding: 30px;
+}
+
+.bottomLeft {
+    padding: 20px;
+}
+.bottomLeft span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 30px 0px;
+}
+.bottomLeft p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.bottomRight {
+    text-align: center;
+    padding-right: 30px;
+}
+.bottomRight span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+.bottomRight p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.buttonBox {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+.buttonBox button {
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.bottomRight .buttonBox {
+    margin-bottom: 25px; 
 }
 
 /* 반응형 스타일 */
