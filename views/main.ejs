@@ -20,6 +20,17 @@
         </div>
     </div>
 
+    <div class="category">
+        <div class="categoryDiv">NEW</div>
+        <div class="categoryDiv">BEST</div>
+        <div class="categoryDiv">STYLE</div>
+        <div class="categoryDiv">HOME</div>
+        <div class="categoryDiv">STATIONERY</div>
+        <div class="categoryDiv">EXHIBITION</div>
+        <div class="categoryDiv">REVIEW</div>
+        <div class="categoryDiv">Q&A</div>
+    </div>
+
     <div class="sliderContainer">
         <button class="prevBtn">&#10094;</button>
         <div class="slider"></div>
@@ -29,7 +40,8 @@
     </div>
 
     <div class="bodyText">BEST SELLER</div>
-    <div class="productCNT">등록제품 : <% getMains.length %></div><br />
+    <div class="bodyText2" >Yzorra의 베스트 제품을 소개합니다.</div>
+    <div class="productCNT">> 등록제품 : <%= getMains.length %>개</div>
     <div class="bodyWrap">
         <% getMains.forEach(product => { %>
             <div class="card" onclick="detailPage(<%= product.id %>)">
@@ -37,6 +49,7 @@
                 <img src="/img/heartBlack.png" alt="좋아요" class="heartIcon">
 
                 <span class="cardTitle"><%= product.name %></span>
+                <span class="cardPrice"><%= product.price %>원</span>
             </div>
         <% }); %>
     </div>

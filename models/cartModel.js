@@ -35,7 +35,7 @@ const addCart = async (product_id, quantity) => {
 };
 
 // 해당 아이디 가진 데이터 삭제
-const deleteCart = async () => {
+const deleteCart = async (id) => {
     const query = "DELETE FROM carts WHERE id = ?";
     try{
         await pool.query(query,[id]);

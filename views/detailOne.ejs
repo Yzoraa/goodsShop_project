@@ -11,14 +11,14 @@
 <body>
     <div class="topBox">
         <div class="topLeft">
-            <img class="logoText" src="/img/textLogo.jpg" width="220px" onclick="goToHome()">
+            <img class="logoText" src="/img/textLogo.jpg" width="220px" onclick="goToHomeDetail()">
         </div>
         <div class="topRight">
             <div class="text">LOGIN</div>
             <div>|</div>
             <div class="text">MYPAGE</div>
             <div>|</div>
-            <div class="text" onclick="cartPage()">CART</div>
+            <div class="text" onclick="cartPageDetail()">CART</div>
         </div>
     </div>
 
@@ -41,7 +41,7 @@
                 <button class="qBtn" onclick="changeQuantity(1)">+</button>
             </div>
 
-            <p class="total">총 가격: <span id="totalPrice"><%= productOne.price %></span>원</p>
+            <p class="total"><small>총 상품금액: </small><span id="totalPrice"></span></p>
 
             <button class="cartBtn">장바구니에 추가</button>
         </div>

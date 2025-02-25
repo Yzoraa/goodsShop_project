@@ -14,53 +14,90 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prevBtn');
     const nextBtn = document.querySelector('.nextBtn');
 
-    // 전체 이미지 사용
-    images.forEach((imgSrc, index) => {
+    // 첫번째 이미지부터 시작
+    let currentIndex = 1;
+
+    const slides = [...images];
+    slides.unshift(images[images.length - 1]); // 마지막 이미지 복제 (앞에 추가)
+    slides.push(images[0]); // 첫 번째 이미지 복제 (뒤에 추가)
+
+    // 슬라이드 생성
+    slides.forEach((imgSrc, index) => {
         const slide = document.createElement('div');
         slide.classList.add('slide');
         slide.innerHTML = `<img src="${imgSrc}" alt="슬라이드">`;
         slider.appendChild(slide);
 
         // 인디케이터 추가
-        const indicator = document.createElement('button');
-        if (index === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', () => {
-            moveSlide(index);
-        }); 
-        indicators.appendChild(indicator);
+        if (index > 0 && index < slides.length - 1) {
+            const indicator = document.createElement('button');
+            if (index === 1) indicator.classList.add('active');
+            indicator.addEventListener('click', () => {
+                moveSlide(index);
+            }); 
+            indicators.appendChild(indicator);
+        }
     });
 
-    let currentIndex = 0;
+    // 기본 위치 설정
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
     let autoSlide = setInterval(() => moveSlide(currentIndex + 1), 3000);
     
     // 슬라이드 이동
     function moveSlide(index) {
-        const totalSlides = images.length;
+        const totalSlides = slides.length;
+        slider.style.transition = "transform 0.5s ease-in-out"; // 기본 이동 애니메이션
 
-        if (index >= totalSlides) {
-            index = 0;
-        } else if (index < 0) {
-            index = totalSlides - 1;
+        if (index >= totalSlides - 1) {
+            // 마지막에서 첫 번째로 이동
+            slider.style.transition = "transform 0.5s ease-in-out";
+            currentIndex = totalSlides - 1;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            setTimeout(() => {
+                slider.style.transition = "none"; // 애니메이션 OFF
+                currentIndex = 1; // 1번으로 순간 이동
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateIndicators(); // 순간이동 후 인디케이터 즉시 갱신
+
+                setTimeout(() => {
+                    slider.style.transition = "transform 0.5s ease-in-out"; // 애니메이션 다시 ON
+                }, 50);
+            }, 500);
+            return;
+        }
+
+        if (index <= 0) {
+            // 첫 번째에서 마지막으로 이동 (순간 이동)
+            slider.style.transition = "transform 0.5s ease-in-out";
+            currentIndex = 0;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            setTimeout(() => {
+                slider.style.transition = "none";
+                currentIndex = totalSlides - 2;
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateIndicators(); // 순간이동 후 인디케이터 즉시 갱신
+
+                setTimeout(() => {
+                    slider.style.transition = "transform 0.5s ease-in-out";
+                }, 50);
+            }, 500);
+            return;
         }
 
         currentIndex = index;
-    
-        // 슬라이더를 왼쪽으로 이동
-        const moveDistance = index * 100;
-        slider.style.transform = `translateX(-${moveDistance}%)`;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        const indicatorButtons = document.querySelectorAll('.indicators button');
-    
-        indicatorButtons.forEach((btn, idx) => {
-            if (idx === index) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-            btn.classList.toggle('active', idx === index);
-        });
-
+        updateIndicators();
         resetAutoSlide();
+    }
+
+    function updateIndicators() {
+        const indicatorButtons = document.querySelectorAll('.indicators button');
+        indicatorButtons.forEach((btn, idx) => {
+            btn.classList.toggle('active', idx + 1 === currentIndex);
+        });
     }
 
     function resetAutoSlide() {
