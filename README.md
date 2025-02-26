@@ -2,7 +2,7 @@
 <p>node.js와 JavaScript, CSS를 사용해 만든 '소품샵' 입니다.</p>
 <p>MVC 패턴, Axios, MySQL로 데이터 공유 기능을 구현했습니다.</p>
 <p>하나의 DB에 2개의 Table로 구성되어있습니다.</p>
-<p><small>products 테이블(id, name, comment, price, img_url)</small> <br /> <small>carts 테이블(id, product_id, quantity, img_url)</small></p>
+<p><small>products 테이블(id, name, comment, price, img_url) / carts 테이블(id, product_id, quantity, img_url)</small></p>
 <br /><br />
 
 
@@ -28,8 +28,8 @@
 
 <h2>📚 Tech Stack</h2>
 <div>
-  <img src="https://img.shields.io/badge/mysql-4479A1.svg?style=flat&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white" />
 </div>
