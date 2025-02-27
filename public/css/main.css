@@ -55,6 +55,52 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+/* 팝업 배경 */
+.layerBox {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    width: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transform: translate(0, 0); /* 기본 위치 */
+}
+
+/* 팝업창 */
+.layerBox form {
+    background: rgba(0, 0, 0, 0.69);
+    text-align: right;
+    position: relative;
+    padding: 5px;
+}
+
+/* 팝업 이미지 */
+.layerBox img {
+    width: 100%;
+    display: block;
+}
+
+/* 버튼을 이미지 아래 위치 */
+#check {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* 닫기 버튼 스타일 */
+#close {
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
 /* 슬라이더 */
 .sliderContainer {
     margin: 5px auto 30px;

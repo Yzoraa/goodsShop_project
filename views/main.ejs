@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인화면</title>
     <link rel="stylesheet" href="/public/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="topBox">
@@ -38,6 +39,21 @@
         <div class="indicators"></div>
         <script src="/public/js/slider.js"></script>
     </div>
+
+    <script src="/public/js/popup.js"></script>
+    <!-- <p>hidePopup 값: <%= hidePopup %></p> ; 확인용 -->
+    <% if (!hidePopup) { %>
+            <div class="layerBox">
+            <img src="../img/popup.jpg" />
+            <form name="popForm">
+                <div id="check">
+                    <input type="checkbox" name="checkbox" value="checkbox" id="checkbox">
+                    <label for="checkbox">오늘 하루 동안 보지 않기</label>
+                </div>
+                <div id="close">닫기</div>
+            </form>
+        </div>
+    <% } %>
 
     <div class="bodyText">BEST SELLER</div>
     <div class="bodyText2" >Yzorra의 베스트 제품을 소개합니다.</div>

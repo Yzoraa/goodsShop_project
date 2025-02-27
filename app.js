@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const multer = require("multer");
 const fs = require('fs');
+const cookieParser = require("cookie-parser");
 
 const storage = multer.diskStorage({
     destination:(req, file, cb) =>{
@@ -26,6 +27,9 @@ const upload = multer({storage});
 const app = express();
 const port = 3000;
 
+// 쿠키 사용
+app.use(cookieParser("mySecretKey"));
+
 app.use(express.json()); // JSON 형식의 데이터를 받기 위해 추가
 app.use(express.urlencoded({ extended: true })); // form 데이터 받기 위해 추가
 app.use("/public", express.static(__dirname + "/public"));
@@ -46,7 +50,9 @@ app.set("views", "./views");
 
 // 기본 홈 라우트
 app.get("/", (req, res) => {
-    res.render("main", {title: "goodsShop"});
+     // 쿠키값은 항상 문자열이므로 boolean 아니게 조심하기
+    const hidePopup = req.signedCookies.hidePopup === "true";
+    res.render("main", { hidePopup });
 });
 
 // 이미지 파일
@@ -54,6 +60,22 @@ app.post("/dynamicFile", upload.single('dynamicFile'), (req, res) =>{
     const imgUrl = `/uploads/${req.file.filename}`;
     res.send({imgUrl});
 })
+
+//  팝업 차단 쿠키 설정 (체크 후 닫기 버튼을 누르면 실행됨)
+app.post("/setCookie", (req, res) => {
+    console.log(req.body); // hidePopup 값 확인
+    const { hidePopup } = req.body;
+
+    if (hidePopup === "true") {
+        res.cookie("hidePopup", true, {
+            maxAge: 24 * 60 * 60 * 1000, // 1일 유지
+            httpOnly: true, // JavaScript에서 접근 불가능
+            signed: true, // 서명된 쿠키
+        });
+    }
+
+    res.send({ success: true });
+});
 
 // 서버연결
 app.listen(port, () => {

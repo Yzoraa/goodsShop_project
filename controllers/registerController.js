@@ -9,8 +9,18 @@ const getProducts = async (req, res) => {
 
 // 전체 (메인페이지)
 const getMainProducts = async (req, res) =>{
-    const getMains = await registerModel.getAllProduct();
-    res.render("main", { getMains });
+    try {
+        console.log("전체 쿠키 확인:", req.signedCookies); // 현재 모든 쿠키 확인
+        const getMains = await registerModel.getAllProduct(); // 상품 데이터 가져오기
+        const hidePopup = req.signedCookies.hidePopup === "true"; // 쿠키 값 가져오기
+
+        console.log("최종 쿠키 값:", hidePopup); // 콘솔에서 값 확인
+        // console.log("메인 페이지 데이터:", getMains); // 상품 데이터 확인
+
+        res.render("main", { hidePopup, getMains }); // 두 개의 데이터를 함께 전달
+    } catch (error) {
+        console.error("메인 페이지 로드 오류:", error);
+    }
 }
 
 // 아이디 하나만 가져오기 (상세페이지 이동!)
