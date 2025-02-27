@@ -2,7 +2,7 @@
 <p>node.js와 JavaScript, CSS를 사용해 만든 '소품샵' 입니다.</p>
 <p>MVC 패턴, Axios, MySQL로 데이터 공유 기능을 구현했습니다.</p>
 <p>하나의 DB에 2개의 Table로 구성되어있습니다.</p>
-<p><small>products 테이블(id, name, comment, price, img_url) / carts 테이블(id, product_id, quantity, img_url)</small></p>
+<p><small> > products 테이블(id, name, comment, price, img_url) / carts 테이블(id, product_id, quantity, img_url)</small></p>
 <br /><br />
 
 
@@ -10,7 +10,7 @@
 <h4>[Main Page]</h4>
 <p>- 이미지 슬라이드 무한 반복</p>
 <p>- 쿠키를 이용해 팝업창 제한</p>
-<img src="">
+<img src="https://github.com/user-attachments/assets/fa14ff54-b9eb-4898-86f6-8a19b8d51a37">
 <br />
 <p>- 상세 페이지 : 장바구니 버튼 클릭시 아이템 정보 carts 테이블에 추가, 상품 수량 변경 가능 </p>
 <p>- 장바구니 페이지 : 장바구니에 담은 아이템 출력</p>
